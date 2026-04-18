@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>埼玉県険道一覧</title>
 
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<style>
+#map {
+height: 500px;
+width: 100%;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>埼玉県険道一覧</h1>
+
+<h2>一覧</h2>
+<ul>
+<li>県道○号（追加予定）</li>
+<li>埼玉県道278号</li>
+</ul>
+
+<h2>地図</h2>
+<div id="map"></div>
+
+<script>
+
+var map = L.map('map').setView([35.9, 139.6], 9);
+
+// 国土地理院地図
+L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+attribution: "国土地理院"
+}).addTo(map);
+var line278 = L.polyline([
+[35.9425622, 138.9090484],
+[35.9237909, 138.9174058],
+[35.9373580, 138.9126717],
+[35.9199254, 138.9339943]
+], {
+color: "red",
+weight: 4
+}).addTo(map);
+
+line278.bindPopup("埼玉県道278号");
+</script>
+
+</body>
+</html>
