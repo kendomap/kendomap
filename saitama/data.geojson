@@ -5,7 +5,9 @@
 "type": "Feature",
 "properties": {
 "name": "埼玉県道278号",
-"difficulty": "★★★☆☆"
+"rank": "★★★☆☆",
+"description": "幅員狭くカーブ多め",
+"page": "roads/278/"
 },
 "geometry": {
 "type": "LineString",
