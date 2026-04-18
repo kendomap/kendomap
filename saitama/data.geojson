@@ -1,5 +1,19 @@
 {
 "type": "FeatureCollection",
 "features": [
+{
+"type": "Feature",
+"properties": {
+"name": "埼玉県道278号",
+"difficulty": "★★★☆☆"
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[139.54,35.92],
+[139.55,35.93],
+[139.57,35.94]
 ]
+}
+}]
 }
