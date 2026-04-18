@@ -43,6 +43,25 @@ fetch("data.geojson")
 .then(data => {
 
 L.geoJSON(data, {
+style: function(feature){
+
+let rank = feature.properties.rank;
+
+let color = "gray"; // デフォルト
+
+if(rank === "★★★★★") color = "darkred";
+else if(rank === "★★★★☆") color = "red";
+else if(rank === "★★★☆☆") color = "orange";
+else if(rank === "★★☆☆☆") color = "green";
+else color = "blue";
+
+return {
+color: color,
+weight: 6,
+opacity: 0.9
+};
+},
+
 onEachFeature: function(feature, layer){
 
 layer.bindPopup(
@@ -57,8 +76,8 @@ layer.openPopup();
 });
 
 }
-}).addTo(map);
 
+}).addTo(map);
 });
 </script>
 
