@@ -72,9 +72,13 @@ attribution:"国土地理院"
 }
 ).addTo(map);
 
-var marker = L.marker([35.7,139.7]).addTo(map);
+var line = L.polyline([
+[35.7,139.7],
+[35.71,139.71],
+[35.72,139.72]
+]).addTo(map);
 
-marker.bindPopup("サンプル険道");
+line.bindPopup("埼玉県道○号");
 
 </script>
 
