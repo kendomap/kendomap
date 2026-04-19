@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>{{県名}} 険道一覧</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<style>
+#map {
+  height: 800px;
+  width: 100%;
+}
+
+/* ポップアップ */
+.leaflet-popup-content-wrapper {
+  width: 320px !important;
+  max-width: 80vw;
+}
+
+.leaflet-popup-content {
+  margin: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.leaflet-popup-content b {
+  font-size: 16px;
+}
+
+.leaflet-popup {
+  max-width: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>{{県名}} 険道一覧</h1>
+
+<a href="../index.html">← トップページに戻る</a>
+
+<h2>地図</h2>
+<div id="map"></div>
+
+<script>
+
+// ★県ごとにここだけ変更
+const prefName = "{{県名}}";
+const center = [35.9, 139.6]; // ←ここも県ごとに変える
+
+var map = L.map('map').setView(center, 9);
+
+// 国土地理院
+L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+  attribution: "国土地理院"
+}).addTo(map);
+
+// GeoJSON読み込み（固定）
+fetch("data.json")
+.then(res => res.json())
+.then(data => {
+
+  L.geoJSON(data, {
+
+    style: function(feature){
+
+      let rank = feature.properties.rank;
+      let color = "blue";
+
+      if(rank === "★★★★★") color = "darkred";
+      else if(rank === "★★★★☆") color = "red";
+      else if(rank === "★★★☆☆") color = "orange";
+      else if(rank === "★★☆☆☆") color = "green";
+
+      return {
+        color: color,
+        weight: 6,
+        opacity: 0.9
+      };
+    },
+
+    onEachFeature: function(feature, layer){
+
+      layer.on("click", function(){
+
+        layer.bindPopup(
+          "<b>" + feature.properties.name + "</b><br>" +
+          "ランク：" + feature.properties.rank + "<br>" +
+          feature.properties.description + "<br><br>" +
+          "<a href='" + feature.properties.page + "'>詳細ページへ</a>"
+        ).openPopup();
+
+      });
+
+    }
+
+  }).addTo(map);
+
+});
+
+</script>
+
+</body>
+</html>
