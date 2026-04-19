@@ -2,17 +2,18 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>★★県険道一覧</title>
+<title>北海道 道道一覧</title>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <style>
 #map {
-height: 800px;
-width: 100%;
+  height: 800px;
+  width: 100%;
 }
-  
+
+/* ポップアップ */
 .leaflet-popup-content-wrapper {
   width: 320px !important;
   max-width: 80vw;
@@ -24,12 +25,12 @@ width: 100%;
   line-height: 1.5;
 }
 
-.leaflet-popup {
-  max-width: none;
-}
-
 .leaflet-popup-content b {
   font-size: 16px;
+}
+
+.leaflet-popup {
+  max-width: none;
 }
 </style>
 
@@ -37,71 +38,70 @@ width: 100%;
 
 <body>
 
-<h1>埼玉県険道一覧</h1>
-<br>
+<h1>北海道 道道一覧</h1>
+
 <a href="../index.html">← トップページに戻る</a>
+
 <h2>地図</h2>
 <div id="map"></div>
 
 <script>
 
-var map = L.map('map').setView([35.9, 139.6], 9);
+// ★県ごとにここだけ変更
+const prefName = "北海道";
+const center = [43.3, 142.6]; // ←ここも県ごとに変える
 
-// 国土地理院地図
+var map = L.map('map').setView(center, 9);
+
+// 国土地理院
 L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
-attribution: "国土地理院"
-}).addTo(map);　
+  attribution: "国土地理院"
+}).addTo(map);
 
+// GeoJSON読み込み（固定）
 fetch("data.json")
 .then(res => res.json())
 .then(data => {
 
-L.geoJSON(data, {
-style: function(feature){
+  L.geoJSON(data, {
 
-let rank = feature.properties.rank;
+    style: function(feature){
 
-let color = "gray"; // デフォルト
+      let rank = feature.properties.rank;
+      let color = "blue";
 
-if(rank === "★★★★★") color = "darkred";
-else if(rank === "★★★★☆") color = "red";
-else if(rank === "★★★☆☆") color = "orange";
-else if(rank === "★★☆☆☆") color = "green";
-else color = "blue";
+      if(rank === "★★★★★") color = "darkred";
+      else if(rank === "★★★★☆") color = "red";
+      else if(rank === "★★★☆☆") color = "orange";
+      else if(rank === "★★☆☆☆") color = "green";
 
-return {
-color: color,
-weight: 10,
-opacity: 0.9
-};
-},
+      return {
+        color: color,
+        weight: 6,
+        opacity: 0.9
+      };
+    },
 
-onEachFeature: function(feature, layer){
+    onEachFeature: function(feature, layer){
 
-layer.bindPopup(
-"<b>" + feature.properties.name + "</b><br>" +
-"ランク：" + feature.properties.rank + "<br>" +
-feature.properties.description + "<br><br>" +
-"<a href='" + feature.properties.page + "'>詳細ページへ</a>"
-);
+      layer.on("click", function(){
 
-layer.on("click", function(){
-layer.openPopup();
+        layer.bindPopup(
+          "<b>" + feature.properties.name + "</b><br>" +
+          "ランク：" + feature.properties.rank + "<br>" +
+          feature.properties.description + "<br><br>" +
+          "<a href='" + feature.properties.page + "'>詳細ページへ</a>"
+        ).openPopup();
+
+      });
+
+    }
+
+  }).addTo(map);
+
 });
 
-}
-
-}).addTo(map);
-});
 </script>
-<h2>一覧</h2>
-<ul>
-<li>県道○号（追加予定）</li>
-<li>
-<a href="roads/278.html">
-埼玉県道278号（★★★☆☆）
-</a>
-</li>
-</ul>
+
 </body>
 </html>
