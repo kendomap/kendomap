@@ -5,8 +5,8 @@
       "type": "Feature",
       "properties": {},
       "geometry": {
-  "type": "MultiLineString",
-  "coordinates": [
+      "type": "MultiLineString",
+      "coordinates": [
           [
             140.87038276753202,
             40.70480190040138
