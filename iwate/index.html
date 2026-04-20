@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>★県 険道一覧</title>
+<title>岩手県 険道一覧</title>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -38,7 +38,7 @@
 
 <body>
 
-<h1>★県 険道一覧</h1>
+<h1>岩手県 険道一覧</h1>
 
 <a href="../index.html">← トップページに戻る</a>
 
@@ -47,9 +47,9 @@
 
 <script>
 
-// ★県ごとにここだけ変更
-const prefName = "★県";
-const center = [★, ★];
+// 県ごとにここだけ変更
+const prefName = "岩手県";
+const center = [39.4, 141.44];
 
 var map = L.map('map').setView(center, 9);
 
@@ -59,7 +59,7 @@ L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // GeoJSON読み込み（固定）
-fetch("★data.json")
+fetch("iwadata.json")
 .then(res => res.json())
 .then(data => {
 
