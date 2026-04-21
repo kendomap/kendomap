@@ -132,22 +132,30 @@ li {
 </p>
 
 <h2>更新履歴</h2>
+
 <table id="history"></table>
 
 <script>
-fetch("2026.json")
+fetch("history/2026.json")
 .then(res => res.json())
 .then(data => {
 
-let html = "<tr><th>日付</th><th>内容</th></tr>";
+let html = `
+<tr>
+<th>日付</th>
+<th>内容</th>
+</tr>
+`;
 
-data.slice(0,20).forEach(item => {
+data.slice(0.20).forEach(item => {
+
 html += `
 <tr>
 <td>${item.date}</td>
 <td>${item.text}</td>
 </tr>
 `;
+
 });
 
 document.getElementById("history").innerHTML = html;
