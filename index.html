@@ -129,12 +129,12 @@ li {
 <script>
 
 Promise.all([
-fetch("history/2027.json").then(res => res.json()),
-fetch("history/2026.json").then(res => res.json())
+fetch("history/2026.json").then(res => res.json()),
+fetch("history/2027.json").then(res => res.json())
 ])
 .then(([y2027, y2026]) => {
 
-let data = [...y2027, ...y2026];
+let data = [...y2026, ...y2027];
 
 let html = "<tr><th>日付</th><th>内容</th></tr>";
 
