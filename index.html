@@ -138,12 +138,11 @@ li {
 <script>
 
 Promise.all([
-fetch("history/2027.json").then(r => r.json()).catch(()=>[]),
-fetch("history/2026.json").then(r => r.json()).catch(()=>[])
-])
-.then(([y2027, y2026]) => {
+fetch("history/2026.json").then(r => r.json()).catch(()=>[]),
 
-let data = [...y2027, ...y2026];
+.then(([y2026]) => {
+
+let data = [y2026];
 
 let html = "<tr><th>日付</th><th>内容</th></tr>";
 
