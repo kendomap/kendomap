@@ -132,35 +132,27 @@ li {
 </p>
 
 <h2>更新履歴</h2>
-
 <table id="history"></table>
 
 <script>
-
-Promise.all([
-fetch("history/2026.json").then(r => r.json()).catch(()=>[]),
-
-.then(([y2026]) => {
-
-let data = [y2026];
+fetch("history.json")
+.then(res => res.json())
+.then(data => {
 
 let html = "<tr><th>日付</th><th>内容</th></tr>";
 
 data.slice(0,20).forEach(item => {
-
 html += `
 <tr>
 <td>${item.date}</td>
 <td>${item.text}</td>
 </tr>
 `;
-
 });
 
 document.getElementById("history").innerHTML = html;
 
 });
-
 </script>
 <h2>険道マップ</h2/>
 
