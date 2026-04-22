@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>★県 険道一覧</title>
+<title>北海道 険道一覧</title>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -38,7 +38,7 @@
 
 <body>
 
-<h1>★県 険道一覧</h1>
+<h1>北海道 険道一覧</h1>
 
 <a href="../index.html">← トップページに戻る</a>
 
@@ -47,9 +47,9 @@
 
 <script>
 
-// ★県ごとにここだけ変更
-const prefName = "★県";
-const center = [41.1, 140.9]; // ←ここも県ごとに変える
+// 北海道ごとにここだけ変更
+const prefName = "北海道";
+const center = [43.63, 142.66]; // ←ここも県ごとに変える
 
 var map = L.map('map').setView(center, 10);
 
@@ -102,7 +102,7 @@ fetch("data.json")
 });
 
 </script>
-<h2>県道一覧</h2>
+<h2>道道一覧</h2>
 
 <table border="1" id="roadtable">
 </table>
