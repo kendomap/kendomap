@@ -5,7 +5,9 @@
 <title>全国険道マップ</title>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
 <style>
+
 body {
 background: #f7f7f7;
 margin: 15px;
@@ -14,76 +16,53 @@ margin-left: auto;
 margin-right: auto;
 font-family: sans-serif;
 }
-</style>
-<style>
-
-body{
-margin:0;
-}
 
 header{
 background:#333;
 color:white;
 padding:15px;
 font-size:24px;
+border-radius:8px;
+margin-bottom:20px;
 }
-background:#333;
-color:white;
-padding:15px;
-font-size:24px;
+
+.site-header {
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo {
+width:60px;
 }
 
 .container{
 padding:15px;
 }
 
-#map{
-height:700px;
-margin-top:20px;
-border:2px solid #ccc;
-}
-
-  ul {
-  list-style: none;
-  padding-left: 0;
-  }
-</head>
-  li a {
-  font-size: 18px;
-  text-decoration: none;
-}
-
-  ul {
-  list-style: none;
-  padding-left: 0;
+ul {
+list-style: none;
+padding-left: 0;
 }
 
 li {
-  font-size: 18px;
-  margin: 6px 0;
+font-size: 18px;
+margin: 6px 0;
 }
-  
-</style>
-<style>
+
+li a {
+font-size: 18px;
+text-decoration: none;
+color:black;
+}
+
 .nav-link {
-font-size: 100px;
+font-size: 20px;
 font-weight: bold;
 }
+
 </style>
 
-<style>
-body {
-margin: 20px;
-}
-</style>　
-<style>
-.region a {
-font-size: 18px;
-font-weight: bold;
-text-decoration: none;
-color: black;
-}
-</style>
 <body>
 
 <header class="site-header">
@@ -98,7 +77,6 @@ color: black;
 <h1>全国険道マップ</h1>
 
 <h2>都道府県一覧</h2>
-<ul>
 <h1>東北・北海道</h1>
 <ul class="nav-link">
 <li><a href="hokkaido/index.html">北海道</a></li>
