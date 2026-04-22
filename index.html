@@ -61,6 +61,25 @@ font-size: 20px;
 font-weight: bold;
 }
 
+.region-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+margin-top: 20px;
+}
+
+.region {
+background: white;
+padding: 15px;
+border-radius: 8px;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.region h2 {
+margin-top: 0;
+font-size: 22px;
+}
+    
 </style>
 
 <body>
@@ -77,8 +96,12 @@ font-weight: bold;
 <h1>全国険道マップ</h1>
 
 <h2>都道府県一覧</h2>
-<h1>東北・北海道</h1>
-<ul class="nav-link">
+
+<div class="region-grid">
+
+<div class="region">
+<h2>東北・北海道</h2>
+<ul>
 <li><a href="hokkaido/index.html">北海道</a></li>
 <li><a href="aomori/index.html">青森県</a></li>
 <li><a href="iwate/index.html">岩手県</a></li>
@@ -87,66 +110,78 @@ font-weight: bold;
 <li><a href="yamagata/index.html">山形県</a></li>
 <li><a href="fukushima/index.html">福島県</a></li>
 </ul>
-</ul>
-<h1>関東</h1>
-    <ul class="nav-link">
-  <li><a href="ibaragi/index.html">茨城県</a></li>
-  <li><a href="tochigi/index.html">栃木県</a></li>
-  <li><a href="gunma/index.html">群馬県</a></li>
+</div>
+
+<div class="region">
+<h2>関東</h2>
+<ul>
+<li><a href="ibaragi/index.html">茨城県</a></li>
+<li><a href="tochigi/index.html">栃木県</a></li>
+<li><a href="gunma/index.html">群馬県</a></li>
 <li><a href="saitama/index.html">埼玉県</a></li>
-  <li><a href="tokyo/index.html">東京都</a></li>
+<li><a href="tokyo/index.html">東京都</a></li>
 <li><a href="chiba/index.html">千葉県</a></li>
-  <li><a href="kanagawa/index.html">神奈川県</a></li>
-  <li><a href="yamanashi/index.html">山梨県</a></li>
-    </ul>
-  <h1>中部</h1>
-      <ul class="nav-link">
-  <li><a href="niigata/index.html">新潟県</a></li>
-  <li><a href="toyama/index.html">富山県</a></li>
-  <li><a href="ishikawa/index.html">石川県</a></li>
-  <li><a href="fukui/index.html">福井県</a></li>
-  <li><a href="nagano/index.html">長野県</a></li>
-  <li><a href="gifu/index.html">岐阜県</a></li>
-  <li><a href="sizuoka/index.html">静岡県</a></li>
-  <li><a href="aichi/index.html">愛知県</a></li>
-  <li><a href="mie/index.html">三重県</a></li>
-      </ul>
-  <h1>関西</h1>
-        <ul class="nav-link">
-  <li><a href="shiga/index.html">滋賀県</a></li>
-  <li><a href="oosaka/index.html">大阪府</a></li>
-  <li><a href="kyoto/index.html">京都府</a></li>
-  <li><a href="nara/index.html">奈良県</a></li>
-  <li><a href="wakayama/index.html">和歌山県</a></li>
-  <li><a href="hyougo/index.html">兵庫県</a></li>
-        </ul>
-  <h1>中国</h1>
-          <ul class="nav-link">
-  <li><a href="okayama/index.html">岡山県</a></li>
-  <li><a href="hiroshima/index.html">広島県</a></li>
-  <li><a href="tottori/index.html">鳥取県</a></li>
-  <li><a href="shimane/index.html">島根県</a></li>
-  <li><a href="yamaguchi/index.html">山口県</a></li>
-          </ul>
-  <h1>四国</h1>
-          <ul class="nav-link">
-  <li><a href="kagawa/index.html">香川県</a></li>
-  <li><a href="tokushima/index.html">徳島県</a></li>
-  <li><a href="ehime/index.html">愛媛県</a></li>
-  <li><a href="kouchi/index.html">高知県</a></li>
-  </ul>
-  <h1>九州沖縄</h1>
-          <ul class="nav-link">
-  <li><a href="fukuoka/index.html">福岡県</a></li>
-  <li><a href="saga/index.html">佐賀県</a></li>
-  <li><a href="nagasaki/index.html">長崎県</a></li>
-  <li><a href="kumamoto/index.html">熊本県</a></li>
-  <li><a href="ooita/index.html">大分県</a></li>
-  <li><a href="miyazaki/index.html">宮崎県</a></li>
-  <li><a href="kagoshima/index.html">鹿児島県</a></li>
-  <li><a href="okinawa/index.html">沖縄県</a></li>
-          </ul>
+<li><a href="kanagawa/index.html">神奈川県</a></li>
+<li><a href="yamanashi/index.html">山梨県</a></li>
 </ul>
+</div>
+
+<div class="region">
+<h2>中部</h2>
+<ul>
+<li><a href="niigata/index.html">新潟県</a></li>
+<li><a href="toyama/index.html">富山県</a></li>
+<li><a href="ishikawa/index.html">石川県</a></li>
+<li><a href="fukui/index.html">福井県</a></li>
+<li><a href="nagano/index.html">長野県</a></li>
+<li><a href="gifu/index.html">岐阜県</a></li>
+<li><a href="sizuoka/index.html">静岡県</a></li>
+<li><a href="aichi/index.html">愛知県</a></li>
+<li><a href="mie/index.html">三重県</a></li>
+</ul>
+</div>
+
+<div class="region">
+<h2>関西</h2>
+<ul>
+<li><a href="shiga/index.html">滋賀県</a></li>
+<li><a href="oosaka/index.html">大阪府</a></li>
+<li><a href="kyoto/index.html">京都府</a></li>
+<li><a href="nara/index.html">奈良県</a></li>
+<li><a href="wakayama/index.html">和歌山県</a></li>
+<li><a href="hyougo/index.html">兵庫県</a></li>
+</ul>
+</div>
+
+<div class="region">
+<h2>中国・四国</h2>
+<ul>
+<li><a href="okayama/index.html">岡山県</a></li>
+<li><a href="hiroshima/index.html">広島県</a></li>
+<li><a href="tottori/index.html">鳥取県</a></li>
+<li><a href="shimane/index.html">島根県</a></li>
+<li><a href="yamaguchi/index.html">山口県</a></li>
+<li><a href="kagawa/index.html">香川県</a></li>
+<li><a href="tokushima/index.html">徳島県</a></li>
+<li><a href="ehime/index.html">愛媛県</a></li>
+<li><a href="kouchi/index.html">高知県</a></li>
+</ul>
+</div>
+
+<div class="region">
+<h2>九州・沖縄</h2>
+<ul>
+<li><a href="fukuoka/index.html">福岡県</a></li>
+<li><a href="saga/index.html">佐賀県</a></li>
+<li><a href="nagasaki/index.html">長崎県</a></li>
+<li><a href="kumamoto/index.html">熊本県</a></li>
+<li><a href="ooita/index.html">大分県</a></li>
+<li><a href="miyazaki/index.html">宮崎県</a></li>
+<li><a href="kagoshima/index.html">鹿児島県</a></li>
+<li><a href="okinawa/index.html">沖縄県</a></li>
+</ul>
+</div>    
+</div>
 <h2>このサイトについて</h2>
 <p>
 全国の険道・酷道をまとめるサイトです。
