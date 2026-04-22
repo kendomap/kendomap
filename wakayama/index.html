@@ -59,7 +59,7 @@ L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // GeoJSON読み込み（固定）
-fetch("data.json")
+fetch("wakadata.json")
 .then(res => res.json())
 .then(data => {
 
