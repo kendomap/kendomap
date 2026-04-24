@@ -1,0 +1,16 @@
+[
+{
+"number": 204,
+"name": "大志田停車場線",
+"rank": "★★★★☆",
+"description": "路面荒廃・通行不能",
+"page": "roads/204.html"
+},
+{
+"number": 41,
+"name": "青森県道41号",
+"rank": "★★★★☆",
+"description": "カーブ多い",
+"page": "roads/41.html"
+}
+]
