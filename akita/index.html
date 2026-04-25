@@ -64,7 +64,7 @@ fetch("data.json")
 .then(res => res.json())
 .then(data => {
 
-  L.geoJSON(data, {
+  let geojson = L.geoJSON(data, {
 
     style: function(feature){
 
