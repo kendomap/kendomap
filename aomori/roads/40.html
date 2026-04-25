@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <title>青森県道40号</title>
 
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  
 <style>
 body{
 font-family: sans-serif;
@@ -26,10 +29,10 @@ border-radius:8px;
 box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
 
-iframe{
-width:100%;
-height:300px;
-border:none;
+#smallmap {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
 }
 </style>
 
@@ -40,7 +43,7 @@ border:none;
 <h1>青森県道40号</h1>
 
 <div class="card">
-<p><b>ランク：</b> ★★☆☆☆</p>
+<p><b>ランク：</b> ★☆☆☆☆</p>
 <p><b>特徴：</b> 幅員狭い・カーブ多め</p>
 <p><b>注意：</b> 離合困難区間あり</p>
 </div>
@@ -48,8 +51,8 @@ border:none;
 <div class="card">
 <p><b>ルート解説</b></p>
 <p>
-山間部を抜ける区間が中心で、見通しの悪いカーブが連続する。
-初心者は注意が必要な県道。
+山間部を抜けていくが二車線が確保されており、坂もなだらかなので普通に通れる。途中国道103号へ抜けられる枝線がある。<br>
+八甲田山雪中行軍遭難事件の舞台であり、実際にこの道を通った。
 </p>
 </div>
 
@@ -59,17 +62,31 @@ border:none;
 </div>
 
 <div class="card">
-<p><b>関連リンク</b></p>
-<a href="https://example.com" target="_blank">他サイト参考</a>
+<p><b>ミニマップ</b></p>
+<div id="smallmap"></div>
 </div>
-
-<div class="card">
-<p><b>マップ（簡易）</b></p>
-<p>※今後ここに小地図も入れられる</p>
-</div>
-
 <br>
 
 <a href="../index.html">← 青森県ページに戻る</a>
+
+<script>
+
+// ★ここだけ変えればOK（県道の位置）
+const center = [40.704804,140.870375]; 
+
+var map = L.map('smallmap').setView(center, 13);
+
+// 国土地理院タイル
+L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+  attribution: "国土地理院"
+}).addTo(map);
+
+// マーカー
+L.marker(center).addTo(map)
+  .bindPopup("")
+  .openPopup();
+
+</script>
+  
 </body>
 </html>
