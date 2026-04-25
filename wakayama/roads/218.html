@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <title>和歌山県道218号</title>
 
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  
 <style>
 body{
 font-family: sans-serif;
@@ -26,10 +29,10 @@ border-radius:8px;
 box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
 
-iframe{
-width:100%;
-height:300px;
-border:none;
+#smallmap {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
 }
 </style>
 
@@ -58,12 +61,32 @@ border:none;
 </div>
 
 <div class="card">
-<p><b>マップ（簡易）</b></p>
-<p>※今後ここに小地図も入れられる</p>
+<p><b>ミニマップ</b></p>
+<div id="smallmap"></div>
 </div>
 
 <br>
 
 <a href="../index.html">← 和歌山県ページに戻る</a>
+
+<script>
+
+// ★ここだけ変えればOK（県道の位置）
+const center = [33.766485,135.474544]; 
+
+var map = L.map('smallmap').setView(center, 13);
+
+// 国土地理院タイル
+L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+  attribution: "国土地理院"
+}).addTo(map);
+
+// マーカー
+L.marker(center).addTo(map)
+  .bindPopup("射森峠")
+  .openPopup();
+
+</script>
+  
 </body>
 </html>
