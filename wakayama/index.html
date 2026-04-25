@@ -63,8 +63,7 @@ fetch("wakadata.json")
 .then(res => res.json())
 .then(data => {
 
-  L.geoJSON(data, {
-
+ let geojson = L.geoJSON(data, {
     style: function(feature){
 
       let rank = feature.properties.rank;
@@ -84,16 +83,35 @@ fetch("wakadata.json")
 
     onEachFeature: function(feature, layer){
 
-      layer.on("click", function(){
+  // マウス乗せ（PC）
+  layer.on("mouseover", function(e){
+    e.target.setStyle({
+      weight: 10,
+      color: "purple"
+    });
+  });
 
-        layer.bindPopup(
-          "<b>" + feature.properties.name + "</b><br>" +
-          "ランク：" + feature.properties.rank + "<br>" +
-          feature.properties.description + "<br><br>" +
-          "<a href='" + feature.properties.page + "'>詳細ページへ</a>"
-        ).openPopup();
+  // マウス外れたら戻す
+  layer.on("mouseout", function(e){
+    geojson.resetStyle(e.target);
+  });
 
-      });
+  // クリック（スマホ対応）
+  layer.on("click", function(){
+
+    layer.setStyle({
+      weight: 10,
+      color: "purple"
+    });
+
+    layer.bindPopup(
+      "<b>" + feature.properties.name + "</b><br>" +
+      "ランク：" + feature.properties.rank + "<br>" +
+      feature.properties.description + "<br><br>" +
+      "<a href='" + feature.properties.page + "'>詳細ページへ</a>"
+    ).openPopup();
+
+  });
 
     }
 
