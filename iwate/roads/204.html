@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <title>岩手県道204号　大志田停車場線</title>
 
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  
 <style>
 body{
 font-family: sans-serif;
@@ -26,10 +29,10 @@ border-radius:8px;
 box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
 
-iframe{
-width:100%;
-height:300px;
-border:none;
+#smallmap {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
 }
 </style>
 
@@ -55,18 +58,37 @@ border:none;
 
 <div class="card">
 <p><b>走行動画</b></p>
-  ※走行日直近順
   <br>
   ・<a href="https://youtu.be/EvoZqZAewhY?si=7PqNWS_lg26mA2Rf" target="_blank">特大の穴が開いた県道…辿り着けないんだが…[岩手県道204号 大志田停車場線]</a>
   <br>
 ・<a href="https://youtu.be/vq2rhMvzbUc?si=ZMVM4FSIc4P46oLW" target="_blank">【岩手県道#008】セローで走る岩手の林道#50 最終回 大志田停車場線(岩手県道204号)</a>
   
+<div class="card">
+<p><b>ミニマップ</b></p>
+<div id="smallmap"></div>
 </div>
-<p><b>マップ（簡易）</b></p>
-<p>※今後ここに小地図も入れられる</p>
-  </div>
 <br>
 
 <a href="../index.html">← 岩手県ページに戻る</a>
+
+<script>
+
+// ★ここだけ変えればOK（県道の位置）
+const center = [39.741606,141.281290]; 
+
+var map = L.map('smallmap').setView(center, 13);
+
+// 国土地理院タイル
+L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+  attribution: "国土地理院"
+}).addTo(map);
+
+// マーカー
+L.marker(center).addTo(map)
+  .bindPopup("旧大志田駅")
+  .openPopup();
+
+</script>
+  
 </body>
 </html>
