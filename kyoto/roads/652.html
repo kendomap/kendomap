@@ -68,10 +68,10 @@ box-shadow:0 2px 6px rgba(0,0,0,0.1);
 
 <br>
 
-<a href="../index.html">← ★県ページに戻る</a>
+<a href="../index.html">← 京都府ページに戻る</a>
 
 <script>
-const center = [35.60, 135.15]; 
+const center = [35.746668, 135.202137]; 
 
 var map = L.map('smallmap').setView(center, 13);
 
@@ -82,7 +82,7 @@ L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
 
 // マーカー
 L.marker(center).addTo(map)
-  .bindPopup("★")
+  .bindPopup("通行不能かもしれない区間")
   .openPopup();
 
 </script>
