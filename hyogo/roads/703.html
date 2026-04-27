@@ -1,1 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>京都府道・兵庫県道703号</title>
 
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  
+<style>
+body{
+font-family: sans-serif;
+max-width: 900px;
+margin: auto;
+padding: 20px;
+background:#fafafa;
+}
+
+h1{
+border-bottom: 2px solid #333;
+padding-bottom: 6px;
+}
+
+.card{
+background:white;
+padding:15px;
+margin:15px 0;
+border-radius:8px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+#smallmap {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>京都府道・兵庫県道703号　永留豊岡線</h1>
+
+<div class="card">
+<p><b>ランク：</b> ★★★★☆</p>
+<p><b>注意：</b> 奥野〜須田間通行不能</p>
+</div>
+
+<div class="card">
+<p><b>ルート解説</b></p>
+<p>
+京都府と兵庫県を結ぶ越境路線。越境区間に道が無い。706号と市道を用いて迂回可能。その他の区間は至って普通の県道・府道
+</p>
+</div>
+
+<div class="card">
+<p><b>走行動画・ウェブサイト</b></p>
+<a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.pref.kyoto.jp/doroka/documents/tango.pdf&ved=2ahUKEwjlwJK3jo2UAxUZsFYBHce4ITMQFnoECCIQAQ&usg=AOvVaw3FsmtPUvJ5Lpy7ac-n8u0R/" target="_blank">京都府丹後土木事務所管内図</a>
+<a href="https://www.yamasita.jp/weblog/2012/08/post_179.html" target="_blank">丹後半島、気になるところ確認ツーリング</a>
+</div>
+
+<div class="card">
+<p><b>ミニマップ</b></p>
+<div id="smallmap"></div>
+</div>
+
+<br>
+
+<a href="../index.html">← 京都府ページに戻る</a>
+
+<script>
+const center = [35.540188,134.907796]; 
+
+var map = L.map('smallmap').setView(center, 13);
+
+// 国土地理院タイル
+L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+  attribution: "国土地理院"
+}).addTo(map);
+
+// マーカー
+L.marker(center).addTo(map)
+  .bindPopup("県道と市道の境界")
+  .openPopup();
+
+</script>
+
+</body>
+</html>
