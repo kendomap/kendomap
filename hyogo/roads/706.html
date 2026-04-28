@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>京都府道・兵庫県道706号</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  
+<style>
+body{
+font-family: sans-serif;
+max-width: 900px;
+margin: auto;
+padding: 20px;
+background:#fafafa;
+}
+
+h1{
+border-bottom: 2px solid #333;
+padding-bottom: 6px;
+}
+
+.card{
+background:white;
+padding:15px;
+margin:15px 0;
+border-radius:8px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+#smallmap {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>京都府道・兵庫県道706号　町分久美浜線</h1>
+
+<div class="card">
+<p><b>ランク：</b> ★★★★☆</p>
+<p><b>特徴：</b> 通行不能以外は★1レベルの道</p>
+<p><b>注意：</b> 駒返峠区間通行不能</p>
+</div>
+
+<div class="card">
+<p><b>ルート解説</b></p>
+<p>
+京都府と兵庫県の越境路線。快走路から突然向きを変えて、険道区間に突入する。以下のウェブサイトやストリートビューを見るに、どんどん廃道化が進んでいる模様。
+</p>
+</div>
+
+<div class="card">
+<p><b>走行動画・ウェブサイト</b></p>
+・<a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.pref.kyoto.jp/doroka/documents/tango.pdf&ved=2ahUKEwjGmrvBqZCUAxXSoK8BHflBKU84ChAWegQINBAB&usg=AOvVaw3FsmtPUvJ5Lpy7ac-n8u0R/" target="_blank">京都府丹後土木事務所管内図</a>
+・<a href="https://www.yamasita.jp/weblog/2012/08/post_179.html" target="_blank">丹後半島、気になるところ確認ツーリング</a>
+</div>
+
+<div class="card">
+<p><b>ミニマップ</b></p>
+<div id="smallmap"></div>
+</div>
+
+<br>
+
+<a href="../index.html">← 兵庫県ページに戻る</a>
+
+<script>
+const center = [35.524096,134.919434]; 
+
+var map = L.map('smallmap').setView(center, 13);
+
+// 国土地理院タイル
+L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+  attribution: "国土地理院"
+}).addTo(map);
+
+// マーカー
+L.marker(center).addTo(map)
+  .bindPopup("駒返峠")
+  .openPopup();
+
+</script>
+
+</body>
+</html>
