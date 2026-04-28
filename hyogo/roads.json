@@ -1,14 +1,14 @@
 [
 {
-"number":100,
-"name": "★★線",
-"rank": "★★★☆☆",
-"description": "幅員狭い",
-"page": "roads/XX.html"
+"number":706,
+"name": "町分久美浜線",
+"rank": "★★★★☆",
+"description": "通行不能",
+"page": "roads/706.html"
 },
 {
 "number": 703,
-"name": "兵庫県道703号",
+"name": "永留豊岡線",
 "rank": "★★★★☆",
 "description": "県境不通",
 "page": "roads/703.html"
