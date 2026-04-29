@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>広島県道465号</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  
+<style>
+body{
+font-family: sans-serif;
+max-width: 900px;
+margin: auto;
+padding: 20px;
+background:#fafafa;
+}
+
+h1{
+border-bottom: 2px solid #333;
+padding-bottom: 6px;
+}
+
+.card{
+background:white;
+padding:15px;
+margin:15px 0;
+border-radius:8px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+#smallmap {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>広島県道465号　川尻安浦線</h1>
+
+<div class="card">
+<p><b>ランク：</b> ★★★★☆</p>
+<p><b>特徴：</b> 狭道・一部不通</p>
+<p><b>注意：</b> 未成道のため不通</p>
+</div>
+
+<div class="card">
+<p><b>ルート解説</b></p>
+<p>
+呉市内で完結。何故か約50㍍だけ道が無く、走破できない。地理院地図には塗られていない道が県道の延長線上に東側から伸びているが、その道は県道465号になるはずの道と思われる。その他の区間は、急坂や狭道もあるが、海水浴場などの利用者がいるためかそこまで荒れてはいない。
+</p>
+</div>
+
+<div class="card">
+<p><b>走行動画・ウェブサイト</b></p>
+<a href="https://youtu.be/s9MmHIShgyc?si=6X_GGW6ou6BE8m2q/" target="_blank">通行不能ってあったけど…これはどういうこと？[広島県道465号 川尻安浦線]</a>
+</div>
+
+<div class="card">
+<p><b>ミニマップ</b></p>
+<div id="smallmap"></div>
+</div>
+
+<br>
+
+<a href="../index.html">← 広島県ページに戻る</a>
+
+<script>
+const center = [34.243455,132.739792]; 
+
+var map = L.map('smallmap').setView(center, 13);
+
+// 国土地理院タイル
+L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+  attribution: "国土地理院"
+}).addTo(map);
+
+// マーカー
+L.marker(center).addTo(map)
+  .bindPopup("ここまでは西側から来れる")
+  .openPopup();
+
+</script>
+
+</body>
+</html>
