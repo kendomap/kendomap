@@ -1,0 +1,16 @@
+[
+{
+"number": 000,
+"name": "★★線",
+"rank": "★★★☆☆",
+"description": "幅員狭い",
+"page": "roads/XX.html"
+},
+{
+"number":465,
+"name": "広島県道465号",
+"rank": "★★★★☆",
+"description": "狭道・一部不通",
+"page": "roads/465.html"
+}
+]
