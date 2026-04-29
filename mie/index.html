@@ -125,7 +125,6 @@ fetch("miedata.json")
     layer.bindPopup(
       "<b>" + feature.properties.name + "</b><br>" +
       "ランク：" + feature.properties.rank + "<br>" +
-      feature.properties.description + "<br><br>" +
       "<a href='" + feature.properties.page + "'>詳細ページへ</a>"
     ).openPopup();
 
