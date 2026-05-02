@@ -1,0 +1,16 @@
+[
+{
+"number":9,
+"name": "日田鹿本線",
+"rank": "★★★★★・★★☆☆☆",
+"description": "通行不能・カーブ多い・激坂",
+"page": "roads/9.html"
+},
+{
+"number": 41,
+"name": "青森県道41号",
+"rank": "★★★★☆",
+"description": "カーブ多い",
+"page": "roads/41.html"
+}
+]
