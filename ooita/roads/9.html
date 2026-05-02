@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>大分県道9号</title>
+<title>大分・熊本県道9号</title>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -40,7 +40,7 @@ box-shadow:0 2px 6px rgba(0,0,0,0.1);
 
 <body>
 
-<h1>大分県道9号　日田鹿本線</h1>
+<h1>大分・熊本県道9号　日田鹿本線</h1>
 
 <div class="card">
 <p><b>ランク：</b> 国道442号以北：★★★★★　以南：★★☆☆☆</p>
@@ -51,13 +51,16 @@ box-shadow:0 2px 6px rgba(0,0,0,0.1);
 <div class="card">
 <p><b>ルート解説</b></p>
 <p>
-日田市から山鹿市鹿本を主に2つの峠を越えて繋ぐ。宿ヶ峯尾峠を越える区間では、熊本県側はカーブが多いが道幅は基本的に保障されている★2の道。大分県側は★1〜2程度の道である。しかし、石建峠区間は
+日田市から山鹿市鹿本を主に2つの峠を越えて繋ぐ。宿ヶ峯尾峠を越える区間では、熊本県側はカーブが多いが道幅は基本的に保障されている★2の道。大分県側は★1〜2程度の道である。
+しかし、石建峠区間は、旧前津江村中心部から南に行った、スノーピーク奥日田の南側付近から廃道状態であり、石建峠まで通行不能。
 </p>
 </div>
 
 <div class="card">
 <p><b>走行動画・ウェブサイト</b></p>
-<a href="★/" target="_blank">★</a>
+<a href="https://youtu.be/nWBiOIdJScg?si=DUINXwzD0aKS3jIm/" target="_blank">【モトブログ】険道？いえ廃道です。【大分・熊本県道9号】走破してきた？の巻。【後編】Japanese motoblog.</a><br>
+<a href="https://youtu.be/FidnnePloSc?si=qMg9qmQci6ne1fis" target="_blank">【前編】困難というより無理じゃない…？？【大分・熊本県道9号　日田鹿本線】</a><br>
+<a href="https://youtu.be/M8PD_ADYyv8?si=eZq6vsy9f62OhhLD" target="_blank">【険道★/容赦なき激坂➞自動車お断り!!➞？？？】大分県道・熊本県道9号 日田鹿本線 part1【日田市・巨人が現れるダム】</a>
 </div>
 
 <div class="card">
@@ -67,10 +70,10 @@ box-shadow:0 2px 6px rgba(0,0,0,0.1);
 
 <br>
 
-<a href="../index.html">← ★県ページに戻る</a>
+<a href="../index.html">← 大分県ページに戻る</a>
 
 <script>
-const center = [35.60, 135.15]; 
+const center = [33.173378,130.935600]; 
 
 var map = L.map('smallmap').setView(center, 13);
 
@@ -81,7 +84,7 @@ L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
 
 // マーカー
 L.marker(center).addTo(map)
-  .bindPopup("石建峠")
+  .bindPopup("石建峠(正確には少し北)")
   .openPopup();
 
 </script>
