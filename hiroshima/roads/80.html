@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>広島県道80号</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  
+<style>
+body{
+font-family: sans-serif;
+max-width: 900px;
+margin: auto;
+padding: 20px;
+background:#fafafa;
+}
+
+h1{
+border-bottom: 2px solid #333;
+padding-bottom: 6px;
+}
+
+.card{
+background:white;
+padding:15px;
+margin:15px 0;
+border-radius:8px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+#smallmap {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>広島県道80号　東広島向原線</h1>
+
+<div class="card">
+<p><b>ランク：</b> ★★★★☆</p>
+<p><b>特徴：</b> 路肩崩壊・舗装損壊</p>
+<p><b>注意：</b> 四輪通行不能区間あり</p>
+</div>
+
+<div class="card">
+<p><b>ルート解説</b></p>
+<p>
+東広島市から安芸高田市向原を東広島市福富町を経由して結ぶ。東広島市街地から福富町までは線形改良のおかげで二車線が確保されているが、福富町〜向原間は路肩崩壊や堆積物などの影響で四輪では通行困難であり、二輪ならギリギリ通れるような状態である。
+</p>
+</div>
+
+<div class="card">
+<p><b>走行動画・ウェブサイト</b></p>
+<a href="https://youtu.be/3fQgSLHmMSI?si=1ntna6HDT_3FwOCt/" target="_blank">動けなくなるか崖に落ちるか、どっちにしますか？[広島県道80号 東広島向原線]</a>
+</div>
+
+<div class="card">
+<p><b>ミニマップ</b></p>
+<div id="smallmap"></div>
+</div>
+
+<br>
+
+<a href="../index.html">← 広島県ページに戻る</a>
+
+<script>
+const center = [34.554331,132.717609]; 
+
+var map = L.map('smallmap').setView(center, 13);
+
+// 国土地理院タイル
+L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+  attribution: "国土地理院"
+}).addTo(map);
+
+// マーカー
+L.marker(center).addTo(map)
+  .bindPopup("通行困難区間の峠")
+  .openPopup();
+
+</script>
+
+</body>
+</html>
