@@ -1,10 +1,10 @@
 [
 {
-"number": 100,
-"name": "★★線",
-"rank": "★★★☆☆",
-"description": "幅員狭い",
-"page": "roads/XX.html"
+"number": 80,
+"name": "東広島向原線",
+"rank": "★★★★☆",
+"description": "路肩崩壊・通行不能",
+"page": "roads/80.html"
 },
 {
 "number":465,
