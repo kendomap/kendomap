@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>香川・徳島県道3号</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  
+<style>
+body{
+font-family: sans-serif;
+max-width: 900px;
+margin: auto;
+padding: 20px;
+background:#fafafa;
+}
+
+h1{
+border-bottom: 2px solid #333;
+padding-bottom: 6px;
+}
+
+.card{
+background:white;
+padding:15px;
+margin:15px 0;
+border-radius:8px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+#smallmap {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>香川・徳島県道3号　志度山川線</h1>
+
+<div class="card">
+<p><b>ランク：</b> ★★★★☆・★★☆☆☆・★☆☆☆☆</p>
+<p><b>特徴：</b> 幅員狭い・カーブ多め</p>
+<p><b>注意：</b> 離合困難区間あり</p>
+</div>
+
+<div class="card">
+<p><b>ルート解説</b></p>
+<p>
+香川県と徳島県を繋ぐ越境路線。県境から徳島県側の南端のヘアピン付近までが廃道状態で通行不能。
+</p>
+</div>
+
+<div class="card">
+<p><b>走行動画・ウェブサイト</b></p>
+<a href="★/" target="_blank">★</a>
+</div>
+
+<div class="card">
+<p><b>ミニマップ</b></p>
+<div id="smallmap"></div>
+</div>
+
+<br>
+
+<a href="../index.html">← ★県ページに戻る</a>
+
+<script>
+const center = [35.60, 135.15]; 
+
+var map = L.map('smallmap').setView(center, 13);
+
+// 国土地理院タイル
+L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+  attribution: "国土地理院"
+}).addTo(map);
+
+// マーカー
+L.marker(center).addTo(map)
+  .bindPopup("★")
+  .openPopup();
+
+</script>
+
+</body>
+</html>
