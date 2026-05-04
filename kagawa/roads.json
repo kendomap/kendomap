@@ -1,0 +1,16 @@
+[
+{
+"number": 3,
+"name": "志度山川線",
+"rank": "★★★★☆",
+"description": "廃道状態通行不能",
+"page": "roads/3.html"
+},
+{
+"number": 41,
+"name": "青森県道41号",
+"rank": "★★★★☆",
+"description": "カーブ多い",
+"page": "roads/41.html"
+}
+]
