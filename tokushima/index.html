@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>徳島県 険道一覧</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<style>
+#map {
+  height: 800px;
+  width: 100%;
+}
+
+/* ポップアップ */
+.leaflet-popup-content-wrapper {
+  width: 320px !important;
+  max-width: 80vw;
+}
+
+.leaflet-popup-content {
+  margin: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.leaflet-popup-content b {
+  font-size: 16px;
+}
+
+.leaflet-popup {
+  max-width: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>徳島県 険道一覧</h1>
+
+<a href="../index.html">← トップページに戻る</a>
+
+<h2>地図</h2>
+<div id="map"></div>
+
+<script>
+
+// ★県ごとにここだけ変更
+const prefName = "徳島県";
+const center = [33.929596,134.209549]; // ←ここも県ごとに変える
+
+var map = L.map('map').setView(center, 10);
+
+// 国土地理院
+L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+  attribution: "国土地理院"
+}).addTo(map);
+
+// GeoJSON読み込み（固定）
+fetch("tokudata.json")
+.then(res => res.json())
+.then(data => {
+
+  let geojson = L.geoJSON(data, {
+
+    style: function(feature){
+
+      let rank = feature.properties.rank;
+      let color = "blue";
+
+      if(rank === "★★★★★") color = "darkred";
+      else if(rank === "★★★★☆") color = "red";
+      else if(rank === "★★★☆☆") color = "orange";
+      else if(rank === "★★☆☆☆") color = "green";
+      else if(rank === "★★★⭐️☆") color = "#FF006F";
+      
+      return {
+        color: color,
+        weight: 8,
+        opacity: 0.9
+      };
+    },
+
+    onEachFeature: function(feature, layer){
+
+  // マウス乗せ（PC）
+  layer.on("mouseover", function(){
+
+    let targetId = feature.properties.id;
+
+    geojson.eachLayer(function(l){
+      if(l.feature.properties.id === targetId){
+        l.setStyle({
+          weight: 10,
+          color: "#cc66ff"
+        });
+      }
+    });
+
+  });
+
+  // マウス外れたら戻す
+  layer.on("mouseout", function(){
+    geojson.resetStyle();
+  });
+
+  // クリック（スマホ・PC）
+  layer.on("click", function(){
+
+    geojson.resetStyle();
+
+    let targetId = feature.properties.id;
+
+    geojson.eachLayer(function(l){
+      if(l.feature.properties.id === targetId){
+        l.setStyle({
+          weight: 10,
+          color: "#cc66ff"
+        });
+      }
+    });
+
+    layer.bindPopup(
+      "<b>" + feature.properties.name + "</b><br>" +
+      "ランク：" + feature.properties.rank + "<br>" +
+      "<a href='" + feature.properties.page + "'>詳細ページへ</a>"
+    ).openPopup();
+
+  });
+
+    }
+
+  }).addTo(map);
+
+});
+
+</script>
+<h2>県道一覧</h2>
+
+<table border="1" id="roadtable">
+</table>
+ <script>
+
+fetch("roads.json")
+.then(res => res.json())
+.then(data => {
+
+data.sort((a,b)=>a.number-b.number);
+
+let html = `
+<tr>
+<th>路線番号</th>
+<th>県道名</th>
+<th>ランク</th>
+<th>説明</th>
+</tr>
+`;
+
+data.forEach(road => {
+
+html += `
+<tr>
+<td>
+<a href="${road.page}">
+<img src="images/${road.number}.png" width="60">
+</a>
+</td>
+<td>
+<a href="${road.page}">
+${road.name}
+</a>
+</td>
+<td>${road.rank}</td>
+<td>${road.description}</td>
+</tr>
+`;
+
+});
+
+document.getElementById("roadtable").innerHTML = html;
+
+});
+
+  </script>
+</body>
+</html>
